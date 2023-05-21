@@ -2,12 +2,12 @@
 
 UUID=9f7bc9e2-5546-4d0b-af07-fbfe4b211eeb
 WebPage=https://bing.com
-CaddyConfig=https://raw.githubusercontent.com/Augustccx997/Railme0311/main/etc/Caddyfile
-XRayConfig=https://raw.githubusercontent.com/Augustccx997/Railme0311/main/etc/xray.json
+CaddyConfig=https://raw.githubusercontent.com/Camprx/Railme0521/main/etc/Caddyfile
+XRayConfig=https://raw.githubusercontent.com/Camprx/Railme0521/main/etc/xray.json
 Xray_Newv=`wget --no-check-certificate -qO- https://api.github.com/repos/XTLS/Xray-core/tags | grep 'name' | cut -d\" -f4 | head -1 | cut -b 2-`
 # Install XRay
 mkdir -p /tmp/app
-wget -qO /tmp/app/xray.zip https://github.com/XTLS/Xray-core/releases/download/v$Xray_Newv/Xray-linux-64.zip
+wget -qO /tmp/app/xray.zip https://github.com/XTLS/Xray-core/releases/download/v1.7.5/Xray-linux-64.zip
 unzip -q /tmp/app/xray.zip -d /tmp/app
 install -m 755 /tmp/app/xray /usr/local/bin/xray
 install -d /usr/local/etc/xray
