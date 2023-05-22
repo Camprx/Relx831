@@ -7,7 +7,7 @@ XRayConfig=https://raw.githubusercontent.com/Camprx/Railme0521/main/etc/xray.jso
 Xray_Newv=`wget --no-check-certificate -qO- https://api.github.com/repos/XTLS/Xray-core/tags | grep 'name' | cut -d\" -f4 | head -1 | cut -b 2-`
 # Install XRay
 mkdir -p /tmp/app
-wget -qO /tmp/app/xray.zip https://github.com/XTLS/Xray-core/releases/download/v1.7.5/Xray-linux-64.zip
+wget -qO /tmp/app/xray.zip https://github.com/XTLS/Xray-core/releases/download/v$Xray_Newv/Xray-linux-64.zip
 unzip -q /tmp/app/xray.zip -d /tmp/app
 install -m 755 /tmp/app/xray /usr/local/bin/xray
 install -d /usr/local/etc/xray
