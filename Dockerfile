@@ -1,10 +1,15 @@
-FROM alpine:edge
+FROM node:latest
+EXPOSE 3000
+WORKDIR /app
 
-RUN apk update && \
-    apk add --no-cache ca-certificates caddy wget && \
-    rm -rf /var/cache/apk/*
+COPY entrypoint.sh /app/
+COPY package.json /app/
+COPY index.js /app/
 
-ADD start.sh /start.sh
-RUN chmod +x /start.sh
 
-CMD /start.sh
+RUN apt-get update &&\
+    apt-get install -y iproute2 &&\
+    npm install -r package.json &&\
+    npm install -g pm2
+
+ENTRYPOINT [ "node", "index.js" ]
